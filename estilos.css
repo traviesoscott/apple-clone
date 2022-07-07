@@ -16,7 +16,7 @@ body{
   background: #000000cc;
   height: 44px;
   z-index: 999;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   right: 0;
@@ -32,7 +32,6 @@ nav .nav-desk{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
   list-style: none;
 }
 
@@ -365,6 +364,7 @@ nav .nav-desk li a:hover{
     justify-content: start;
     overflow: hidden;
     z-index: -1;
+    transition: all 760ms ease;
   }
 
   .nav-container.active .nav-desk{
@@ -392,6 +392,14 @@ nav .nav-desk li a:hover{
     border-bottom: 1px solid #616161;
     width: 100%;
     font-size: 16px;
+    transform: translateY(-80px);
+    opacity: 0;
+    transition: all 600ms ease;
+  }
+
+  .nav-container.active .nav-desk li a{
+    transform: translateY(0);
+    opacity: 1;
   }
 
   nav .nav-mobile{
@@ -421,6 +429,9 @@ nav .nav-desk li a:hover{
     position: absolute;
     width: 100%;
     background: white;
+    transition-property: transform, top;
+    transition-delay: 0ms, 160ms;
+    transition-duration: 200ms;
   }
 
   nav .menu-icon .line1{
@@ -434,11 +445,17 @@ nav .nav-desk li a:hover{
   .nav-container.active nav .menu-icon-cont .menu-icon .line1{
     top: 0;
     transform: rotateZ(45deg);
+    transition-property: top, transform;
+    transition-delay: 0ms, 160ms;
+    transition-duration: 200ms;
   }
 
   .nav-container.active nav .menu-icon-cont .menu-icon .line2{
     top: 0;
     transform: rotateZ(-45deg);
+    transition-property: top, transform;
+    transition-delay: 0ms, 160ms;
+    transition-duration: 200ms;
   }
 
 
@@ -448,6 +465,9 @@ nav .nav-desk li a:hover{
     pointer-events: none;
   }
 
+  .nav-container .nav-mobile .bag{
+    transition: all 760ms ease;
+  }
 
   .mobile-search-container input{
     width: 100%;
@@ -464,16 +484,20 @@ nav .nav-desk li a:hover{
   .mobile-search-container{
     position: relative;
     padding: 0 10px;
-    margin-top: 10px;
+    margin-top: -20px;
     border-bottom: 1px solid #616161;
     display: flex;
     padding-bottom: 15px;
     align-items: center;
     transform: rotateX(90deg);
+    opacity: 0;
+    transition: all 600ms ease;
   }
 
   .nav-container.active .mobile-search-container{
     transform: rotateX(0deg);
+    margin-top: 10px;
+    opacity: 1;
   }
 
   .mobile-search-container .search{
@@ -494,6 +518,7 @@ nav .nav-desk li a:hover{
     cursor: pointer;
     width: 0;
     overflow: hidden;
+    transition: all 400ms ease;
   }
 
   .mobile-search-container .search-bar.active + .cancel{
@@ -519,6 +544,7 @@ nav .nav-desk li a:hover{
     top: 80px;
     opacity: 1;
     pointer-events: auto;
+    transition-delay: 40ms;
   }
 
   .mobile-search-container .quick-links{
@@ -529,6 +555,7 @@ nav .nav-desk li a:hover{
     opacity: 0;
     pointer-events: none;
     top: 10px;
+    transition: all 400ms ease;
   }
 
   .mobile-search-container .quick-links ul{
@@ -556,4 +583,15 @@ nav .nav-desk li a:hover{
   .mobile-search-container .quick-links ul li a:hover{
     color: #2e8fea;
   }
+
+  .nav-container nav {
+    transition: all 400ms ease;
+  }
+}
+
+input,
+div,
+span,
+a{
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
