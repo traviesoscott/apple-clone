@@ -28,3 +28,21 @@ const navCont = document.querySelector('.nav-container');
 menuIconCont.addEventListener("click", () => {
     navCont.classList.toggle("active");
 })
+
+
+const searchBar = document.querySelector('.mobile-search-container .search-bar');
+const nav = document.querySelector('.nav-container nav');
+const searchInput = document.querySelector('.mobile-search-container input');
+const cancelBtn = document.querySelector('.mobile-search-container .cancel');
+
+searchInput.addEventListener("click", () => {
+    searchBar.classList.add("active");
+    nav.classList.add("move-up");
+    deskNav.classList.add("move-down");
+})
+
+cancelBtn.addEventListener("click", () => {
+    searchBar.classList.remove("active");
+    nav.classList.remove("move-up");
+    deskNav.classList.remove("move-down");
+})
