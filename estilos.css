@@ -355,7 +355,7 @@ nav .nav-desk li a:hover{
 @media screen and (max-width: 835px) {
   .nav-container .nav-desk{
     flex-direction: column;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
