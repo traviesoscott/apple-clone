@@ -788,14 +788,14 @@ a{
     width: 95%;
     height: 36px;
     border-radius: 8px;
-    transition: all 250ms ease-in;
+    transition: all 350ms ease-in;
   }
   .mobile-search-container.active .search-writte .search-bar input{
     padding: 0px 30px;
     width: 75%;
     height: 36px;
     border-radius: 8px;
-    transition: all 250ms ease-in;
+    transition: all 350ms ease-in;
     flex: 1;
   }
   .mobile-search-container.active .search-writte .cancel {
