@@ -1,48 +1,49 @@
-const searchBtn = document.querySelector('nav .nav-desk .search');
-const closeBtn = document.querySelector('.search-container .close');
-const deskNav = document.querySelector('.nav-desk');
 const searchCont = document.querySelector('.search-container');
+const closeBtn = document.querySelector('.search-writte .close');
+const searchBtn = document.querySelector('.desktop-nav .search');
 const overlay = document.querySelector('.overlay');
-
-searchBtn.addEventListener("click", () => {
-    deskNav.classList.add("hide");
-    searchCont.classList.remove("hide");
-    overlay.classList.add("show");
-})
+const deskNav = document.querySelector('.desktop-nav')
 
 closeBtn.addEventListener("click", () => {
-    deskNav.classList.remove("hide");
-    searchCont.classList.add("hide");
+    searchCont.classList.toggle("active");
     overlay.classList.remove("show");
+    deskNav.classList.remove("no-show");
+})
+
+searchBtn.addEventListener("click", () => {
+    searchCont.classList.remove("active");
+    overlay.classList.toggle("show");
+    deskNav.classList.toggle("no-show");
+
 })
 
 overlay.addEventListener("click", () => {
-    deskNav.classList.remove("hide");
-    searchCont.classList.add("hide");
+    searchCont.classList.toggle("active");
     overlay.classList.remove("show");
+    deskNav.classList.remove("no-show");
 })
 
-const menuIconCont = document.querySelector('nav .menu-icon-cont');
-const navCont = document.querySelector('.nav-container');
+const searchBarMobile = document.querySelector('.mobile-search-container .search-writte .search-bar');
+const mobileSearch = document.querySelector(".mobile-search-container");
+const mobileNav = document.querySelector(".mobile-nav");
+const cancel = document.querySelector(".cancel");
 
-menuIconCont.addEventListener("click", () => {
-    navCont.classList.toggle("active");
+searchBarMobile.addEventListener("click", () => {
+    mobileSearch.classList.add("active");
+    mobileNav.classList.add("active");
+    deskNav.classList.add("no-show");
 })
 
-
-const searchBar = document.querySelector('.mobile-search-container .search-bar');
-const nav = document.querySelector('.nav-container nav');
-const searchInput = document.querySelector('.mobile-search-container input');
-const cancelBtn = document.querySelector('.mobile-search-container .cancel');
-
-searchInput.addEventListener("click", () => {
-    searchBar.classList.add("active");
-    nav.classList.add("move-up");
-    deskNav.classList.add("move-down");
+cancel.addEventListener("click", () => {
+    mobileSearch.classList.remove("active");
+    mobileNav.classList.remove("active");
+    deskNav.classList.remove("no-show");
 })
 
-cancelBtn.addEventListener("click", () => {
-    searchBar.classList.remove("active");
-    nav.classList.remove("move-up");
-    deskNav.classList.remove("move-down");
+const closeMobile = document.querySelector('.mobile-nav .lineas');
+
+closeMobile.addEventListener("click", () => {
+    deskNav.classList.toggle("hide");
+    mobileSearch.classList.toggle("no-show");
+    mobileNav.classList.toggle("no-bag");
 })
